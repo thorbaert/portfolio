@@ -29,7 +29,7 @@ $(function () {
 			};
 			$.ajax({
 				type: "POST",
-				url: "http://localhost:5022/mail",
+				url: "/mail",
 				processData: false,
 				contentType: 'application/json',
 				data: JSON.stringify(body),
