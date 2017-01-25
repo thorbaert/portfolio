@@ -644,3 +644,6 @@ img::-moz-selection {
 
 body {
   webkit-tap-highlight-color: #fed136; }
+
+.portrait {
+  max-height: 70vh; }

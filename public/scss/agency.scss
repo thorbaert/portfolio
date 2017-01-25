@@ -755,3 +755,7 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: $theme-primary;
 }
+
+.portrait {
+    max-height: 70vh;
+}
