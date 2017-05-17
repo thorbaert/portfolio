@@ -647,3 +647,12 @@ body {
 
 .portrait {
   max-height: 70vh; }
+
+.special-links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row; }
+
+.special-link {
+  margin: 15px; }
