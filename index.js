@@ -19,7 +19,8 @@ var knownIps = [];
 
 
 app.use(function (req,res,next) {
-	let ip = req.id
+	let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+	ip = ip.match(/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/);
 	if (knownIps.indexOf(ip) < 0) {
 		knownIps.push(ip)
 		axios.get(`http://ip-api.com/json/${ip}`)
