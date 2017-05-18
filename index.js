@@ -26,7 +26,7 @@ app.use(function (req,res,next) {
 			let email = {
 				from: 'visitors@baert.io',
 				to: 'developer@baert.io',
-				subject: 'Visitor at Portfolio',
+				subject: `Visitor at Portfolio from ${ipTestResponse.data.city}`,
 				text: `you have a portfolio Visitor at ip: ${ip} with the info of
 ${JSON.stringify(ipTestResponse.data,null,'  ')}`
 			}
