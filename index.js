@@ -15,27 +15,30 @@ let transporter = mailer.createTransport(config.smtpStr);
 
 const app = express();
 
+var knownIps = [];
+
 
 app.use(function (req,res,next) {
-	let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-	ip = ip.match(/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/);
-//	console.log('Visitor from ip: ' + ip);
-	axios.get(`http://ip-api.com/json/${ip}`)
-		.then(function (ipTestResponse) {
-			console.log(ipTestResponse.data);
-			let email = {
-				from: 'visitors@baert.io',
-				to: 'developer@baert.io',
-				subject: `Visitor at Portfolio from ${ipTestResponse.data.city}`,
-				text: `you have a portfolio Visitor at ip: ${ip} with the info of
+	let ip = req.id
+	if (knownIps.indexOf(ip) < 0) {
+		knownIps.push(ip)
+		axios.get(`http://ip-api.com/json/${ip}`)
+			.then(function (ipTestResponse) {
+				console.log(ipTestResponse.data);
+				let email = {
+					from: 'visitors@baert.io',
+					to: 'developer@baert.io',
+					subject: `Visitor from ${ipTestResponse.data.city} ip: ${ip}`,
+					text: `you have a portfolio Visitor at ip: ${ip} with the info of
 ${JSON.stringify(ipTestResponse.data,null,'  ')}`
-			}
-			transporter.sendMail(email, (err, results) => {
-				if (err) {
-					console.log(err);
-				}
+				};
+				transporter.sendMail(email, (err, results) => {
+					if (err) {
+						console.log(err);
+					}
+				})
 			})
-		})
+	}
 	next()
 });
 
