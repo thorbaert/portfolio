@@ -22,14 +22,10 @@ const app = express();
 app.use(function (req,res,next) {
 	let ipFull = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 	let ip = ipFull.match(/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/);
-	console.log('KnownIps:'+knownIps)
-	console.log('Current Ip:'+ip)
 	if (knownIps.indexOf(ipFull) < 0) {
-		console.log('Email Attempt')
 		knownIps.push(ipFull);
 		axios.get(`http://ip-api.com/json/${ip}`)
 			.then(function (ipTestResponse) {
-				console.log(ipTestResponse.data);
 				let email = {
 					from: 'visitors@baert.io',
 					to: 'developer@baert.io',
@@ -52,7 +48,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post('/mail', function (req, res, next) {
-	console.log(req.body);
 	let body = req.body;
 	let email = {
 		from: 'portfolio@baert.io',
