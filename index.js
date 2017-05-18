@@ -20,10 +20,13 @@ const app = express();
 
 
 app.use(function (req,res,next) {
-	let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-	ip = ip.match(/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/);
-	if (knownIps.indexOf(ip) < 0) {
-		knownIps.push(ip);
+	let ipFull = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+	let ip = ipFull.match(/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/);
+	console.log('KnownIps:'+knownIps)
+	console.log('Current Ip:'+ip)
+	if (knownIps.indexOf(ipFull) < 0) {
+		console.log('Email Attempt')
+		knownIps.push(ipFull);
 		axios.get(`http://ip-api.com/json/${ip}`)
 			.then(function (ipTestResponse) {
 				console.log(ipTestResponse.data);
