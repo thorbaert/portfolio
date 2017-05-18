@@ -18,7 +18,7 @@ const app = express();
 
 app.use(function (req,res,next) {
 	let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-	ip = ip.match(/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/)
+	ip = ip.match(/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/);
 //	console.log('Visitor from ip: ' + ip);
 	axios.get(`http://ip-api.com/json/${ip}`)
 		.then(function (ipTestResponse) {
