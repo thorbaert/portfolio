@@ -19,7 +19,13 @@ const app = express();
 
 
 
-app.use(function (req,res,next) {
+
+
+app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use(cors());
+
+app.get('/visit', function (req,res,next) {
 	let ipFull = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 	let ip = ipFull.match(/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/);
 	if (knownIps.indexOf(ipFull) < 0) {
@@ -36,16 +42,15 @@ ${JSON.stringify(ipTestResponse.data,null,'  ')}`
 				transporter.sendMail(email, (err, results) => {
 					if (err) {
 						console.log(err);
+					} else {
+						res.sendStatus(200)
 					}
+					
 				})
 			})
 	}
-	next()
+	
 });
-
-app.use(express.static('public'));
-app.use(bodyParser.json());
-app.use(cors());
 
 app.post('/mail', function (req, res, next) {
 	let body = req.body;
