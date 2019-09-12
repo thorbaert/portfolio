@@ -1,6 +1,6 @@
 /*!
  * Start Bootstrap - Agency v3.3.7+1 (http://startbootstrap.com/template-overviews/agency)
- * Copyright 2013-2017 Start Bootstrap
+ * Copyright 2013-2019 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 body {
@@ -278,10 +278,11 @@ section {
   margin: 0 0 15px;
   right: 0; }
   #portfolio .portfolio-item .portfolio-link {
-    display: block;
+    display: flex;
     position: relative;
     max-width: 400px;
-    margin: 0 auto; }
+    margin: 0 auto;
+    justify-content: center; }
     #portfolio .portfolio-item .portfolio-link .portfolio-hover {
       background: rgba(254, 209, 54, 0.1);
       position: absolute;
@@ -307,6 +308,8 @@ section {
         #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3,
         #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4 {
           margin: 0; }
+    #portfolio .portfolio-item .portfolio-link .img-responsive {
+      max-height: 200px; }
   #portfolio .portfolio-item .portfolio-caption {
     max-width: 400px;
     margin: 0 auto;
@@ -590,7 +593,8 @@ ul.social-buttons {
     margin-bottom: 30px;
     margin-top: 0; }
   .portfolio-modal .modal-content img {
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    max-height: 700px; }
 
 .portfolio-modal .close-modal {
   position: absolute;

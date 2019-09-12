@@ -21,7 +21,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
-		<link href='//cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css' rel='stylesheet'>
+		<link href='https://cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css' rel='stylesheet'>
 		
 		<!-- Theme CSS -->
 		<link href="css/agency.min.css" rel="stylesheet">
@@ -140,7 +140,22 @@
 				</div>
 				<div class="row">
 					<div class="col-md-4 col-sm-6 portfolio-item">
-						<a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+						<a href="#portfolioModalMealHero" class="portfolio-link" data-toggle="modal">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+									<i class="fa fa-plus fa-3x"></i>
+								</div>
+							</div>
+							<img src="img/portfolio/mealHero.png" class="img-responsive" alt="">
+						</a>
+						<div class="portfolio-caption">
+							<h4>Meal Hero</h4>
+							<p class="text-muted">Meal Planning App</p>
+						</div>
+					</div>
+
+					<div class="col-md-4 col-sm-6 portfolio-item">
+						<a href="#portfolioModalMazeSolver" class="portfolio-link" data-toggle="modal">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
 									<i class="fa fa-plus fa-3x"></i>
@@ -155,7 +170,7 @@
 					</div>
 
 					<div class="col-md-4 col-sm-6 portfolio-item">
-						<a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+						<a href="#portfolioModalCloneWars" class="portfolio-link" data-toggle="modal">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
 									<i class="fa fa-plus fa-3x"></i>
@@ -168,10 +183,9 @@
 							<p class="text-muted">Codewars Clone</p>
 						</div>
 					</div>
-					
-					
+
 					<div class="col-md-4 col-sm-6 portfolio-item">
-						<a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+						<a href="#portfolioModalUpkeep" class="portfolio-link" data-toggle="modal">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
 									<i class="fa fa-plus fa-3x"></i>
@@ -458,8 +472,40 @@
 		<!-- Portfolio Modals -->
 		<!-- Use the modals below to showcase details about your portfolio projects! -->
 		
-		<!-- Portfolio Modal 1 -->
-		<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="portfolio-modal modal fade" id="portfolioModalMealHero" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="close-modal" data-dismiss="modal">
+						<div class="lr">
+							<div class="rl">
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-8 col-lg-offset-2">
+								<div class="modal-body">
+									<!-- Project Details Go Here -->
+									<h2>Meal Hero</h2>
+
+									<img class="img-responsive img-centered" src="img/portfolio/mealHero.png" alt="">
+
+									<h3><a href="https://try.mymealhero.com/" target="_blank">MealHero</a></h3>
+
+									<p>Meal Hero is an app created with Ionic that allows you to choose meals and build a shopping list.</p>
+
+									<button type="button" class="btn btn-primary" data-dismiss="modal">
+										<i class="fa fa-times"></i> Close Project
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="portfolio-modal modal fade" id="portfolioModalCloneWars" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="close-modal" data-dismiss="modal">
@@ -489,7 +535,7 @@
 										its unit test framework.
 									</p>
 									<p><a href="https://github.com/CodewarsClone/Codewars" target="_blank">GitHub</a></p>
-									
+
 									<ul class="list-inline">
 										<li>Date: January 2017</li>
 										<li>Production Time: 2.5 Weeks</li>
@@ -506,8 +552,7 @@
 			</div>
 		</div>
 		
-		<!-- Portfolio Modal 2 -->
-		<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="portfolio-modal modal fade" id="portfolioModalUpkeep" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="close-modal" data-dismiss="modal">
@@ -545,8 +590,7 @@
 			</div>
 		</div>
 		
-		 <!--Portfolio Modal 3-->
-		<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="portfolio-modal modal fade" id="portfolioModalMazeSolver" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="close-modal" data-dismiss="modal">
@@ -562,12 +606,12 @@
 									<h2>Maze Solver</h2>
 									<p class="item-intro text-muted">Custom Maze Solver</p>
 									<img class="img-responsive img-centered" src="img/portfolio/MazeSolver.png" alt="">
-									<p>
 									<h3><a href="http://Maze.Baert.io" target="_blank">Maze.Baert.io</a></h3>
-									This Maze Solver was made in response to a code challenge. It will solve a maze using
-									<a href="https://en.wikipedia.org/wiki/Breadth-first_search" target="_blank">Breadth-first search</a>.
-									It takes a step in every possible direction at the same time. then assumes the first path to find the
-									end is the shortest.
+									<p>
+										This Maze Solver was made in response to a code challenge. It will solve a maze using
+										<a href="https://en.wikipedia.org/wiki/Breadth-first_search" target="_blank">Breadth-first search</a>.
+										It takes a step in every possible direction at the same time. then assumes the first path to find the
+										end is the shortest.
 									</p>
 									<p><a href="https://github.com/JoshuaBaert/MazeSolver" target="_blank">GitHub</a></p>
 									<ul class="list-inline">

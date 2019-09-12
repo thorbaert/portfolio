@@ -19,5 +19,5 @@ COPY ./index.js index.js
 COPY ./config.js config.js
 COPY --from=node /build /app/public
 EXPOSE 8080
-ENTRYPOINT ["npm", "run", "start"]
+ENTRYPOINT ["npm", "run", "start:prod"]
 
