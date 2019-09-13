@@ -2,12 +2,10 @@
 
 FROM node:8 as node
 LABEL author="Joshua Baert"
-RUN npm install -g gulp@3.9.1
 WORKDIR /build
-COPY ./public/package.json package.json
-RUN npm install
 COPY ./public .
-RUN gulp
+RUN npm install
+RUN npx gulp
 
 ### Stage 2
 
