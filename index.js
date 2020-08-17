@@ -34,8 +34,10 @@ app.get('/visit', function (req, res, next) {
                     from: 'visitors@baert.io',
                     to: 'developer@baert.io',
                     subject: `Visitor from ${ipTestResponse.data.city} ip: ${ip}`,
-                    text: `you have a portfolio Visitor at ip: ${ip} with the info of
-${JSON.stringify(ipTestResponse.data, null, '  ')}`,
+                    text: `
+You have a portfolio Visitor at ip: ${ip} with the info of\n
+${JSON.stringify(ipTestResponse.data, null, '  ')}
+`,
                 };
                 transporter.sendMail(email, (err, results) => {
                     if (err) {
