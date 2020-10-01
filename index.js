@@ -12,7 +12,15 @@ const config = require('./config');
 const knownIps = [];
 
 
-let transporter = mailer.createTransport(config.smtpStr);
+let transporter = mailer.createTransport({
+    host: config.smtpHost,
+    port: config.smtpPort,
+    secure: false, // true for 465, false for other ports
+    auth: {
+        user: config.smtpUser, // generated ethereal user
+        pass: config.smtpPass, // generated ethereal password
+    },
+});
 
 
 const app = express();
@@ -24,6 +32,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/visit', function (req, res, next) {
+    console.log('got a visit');
     let ipFull = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     let ip = ipFull.match(/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/);
     if (knownIps.indexOf(ipFull) < 0) {
@@ -53,6 +62,7 @@ ${JSON.stringify(ipTestResponse.data, null, '  ')}
 });
 
 app.post('/mail', function (req, res, next) {
+    console.log('contact us form filled');
     let body = req.body;
     let email = {
         from: 'portfolio@baert.io',
