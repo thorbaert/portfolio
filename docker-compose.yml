@@ -2,6 +2,7 @@ version: '3'
 
 services:
   portfolio:
+    command: yarn
     container_name: portfolio
     build:
       context: ./
