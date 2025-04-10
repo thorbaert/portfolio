@@ -22,10 +22,7 @@ let transporter = mailer.createTransport({
     },
 });
 
-
 const app = express();
-
-
 
 app.use(express.static('public'));
 app.use(bodyParser.json());

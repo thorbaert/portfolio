@@ -1,13 +1,11 @@
 import mailer from 'nodemailer';
 
-const transporter = mailer.createTransport({
-    host: config.smtpHost,
-    port: config.smtpPort,
-    secure: false, // true for 465, false for other ports
+export const transporter = mailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    secure: process.env.SMTP_PORT === 465, // true for 465, false for other ports
     auth: {
-        user: config.smtpUser, // generated ethereal user
-        pass: config.smtpPass, // generated ethereal password
+        user: process.env.SMTP_USER, // generated ethereal user
+        pass: process.env.SMTP_PASS, // generated ethereal password
     },
 });
-
-export default transporter
