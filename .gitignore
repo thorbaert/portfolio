@@ -3,3 +3,5 @@ config.js
 .idea
 package-lock.json
 yarn.lock
+./api/public
+.env
