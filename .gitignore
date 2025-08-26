@@ -5,3 +5,4 @@ package-lock.json
 yarn.lock
 ./api/public
 .env
+build
