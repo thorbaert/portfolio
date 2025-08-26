@@ -17,7 +17,8 @@ router.put('/', async (req, res, next) => {
         let text = `
 You have a portfolio Visitor at ip: ${ip} with the info of
 
-${JSON.stringify(ipRes, null, '  ')}\n`;
+${JSON.stringify(ipRes, null, '  ')}
+`;
         let emailProps = {
             from: 'visitors@baert.io',
             to: 'developer@baert.io',
@@ -26,12 +27,12 @@ ${JSON.stringify(ipRes, null, '  ')}\n`;
         };
         transporter.sendMail(emailProps, (err) => {
             if (err) {
-                console.error(err)
+                console.error(err);
                 res.sendStatus(400);
             } else res.sendStatus(200);
         });
     } else {
-        return res.sendStatus(200)
+        return res.sendStatus(200);
     }
 });
 
